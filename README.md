@@ -1,6 +1,6 @@
 # Ambit Frontend: Double Duty Yield Interface
 
-![Ambit Logo](../Ambit/Image%20Gallery/Logo.png)
+![Ambit Logo](src/assets/Logo.png)
 
 A modern, neon-themed web interface for the Ambit Protocol - an auto-repaying public goods loan strategy built for the Octant DeFi Hackathon.
 
@@ -21,7 +21,7 @@ A modern, neon-themed web interface for the Ambit Protocol - an auto-repaying pu
 
 ## Overview
 
-![Home Screen](../Ambit/Image%20Gallery/Home.png)
+![Home Screen](src/assets/Home.png)
 
 The Ambit Frontend is a React-based decentralized application (dApp) that provides an intuitive interface for interacting with the Ambit Protocol smart contracts. It enables DAOs and users to deposit DAI, track dual-yield generation, manage community borrowers, and monitor public goods funding in real-time.
 
@@ -151,7 +151,7 @@ yarn preview
 
 ### 1. DAO Treasury Dashboard
 
-![Second View](../Ambit/Image%20Gallery/Second.png)
+![Second View](src/assets/Second.png)
 
 **Features:**
 - Deposit DAI into the strategy
@@ -285,7 +285,7 @@ The frontend includes comprehensive error handling:
 
 ## Protocol Architecture
 
-![Architecture Chart](../Ambit/Image%20Gallery/Chart.png)
+![Architecture Chart](src/assets/Chart.png)
 
 ### The "Winning Twist": Dual-Yield Mechanism
 
