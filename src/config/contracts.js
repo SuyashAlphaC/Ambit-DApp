@@ -40,7 +40,7 @@ export const NETWORK = {
 };
 
 export const MORPHO_MARKET_PARAMS = {
-  marketId: "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc", 
+  marketId: "0xb1eac1c0f3ad13fb45b01beac8458c055c903b1bff8cb882346635996a774f77",
   loanToken: CONTRACTS.DAI,
   collateralToken: CONTRACTS.SDAI,
   oracle: "0x9d4eb56E054e4bFE961F861E351F606987784B65",
