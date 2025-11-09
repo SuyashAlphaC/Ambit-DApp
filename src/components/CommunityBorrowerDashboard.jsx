@@ -5,7 +5,9 @@ import CommunityBorrowingInterface from './CommunityBorrowingInterface';
 
 const STRATEGY_ABI = [
   "function isCommunityBorrower(address borrower) external view returns (bool)",
-  "function getBorrowerInfo(address borrower) external view returns (bool isWhitelisted, uint256 totalRepaid, uint256 currentDebt)"
+  "function getBorrowerInfo(address borrower) external view returns (bool isWhitelisted, uint256 totalRepaid, uint256 currentDebt)",
+  "function getCommunityBorrowerCount() external view returns (uint256)",
+  "function totalCommunityDebtRepaid() external view returns (uint256)"
 ];
 
 const CommunityBorrowerDashboard = ({ account, provider, signer, strategyAddress }) => {
@@ -14,6 +16,8 @@ const CommunityBorrowerDashboard = ({ account, provider, signer, strategyAddress
   const [currentDebt, setCurrentDebt] = useState('0');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [totalBorrowers, setTotalBorrowers] = useState('0');
+  const [totalRepaidAmount, setTotalRepaidAmount] = useState('0');
 
   useEffect(() => {
     if (account && provider && strategyAddress) {
@@ -30,6 +34,13 @@ const CommunityBorrowerDashboard = ({ account, provider, signer, strategyAddress
       setIsWhitelisted(borrowerInfo.isWhitelisted);
       setTotalRepaid(ethers.formatUnits(borrowerInfo.totalRepaid, 18));
       setCurrentDebt(ethers.formatUnits(borrowerInfo.currentDebt, 18));
+
+      // Fetch community-wide statistics
+      const borrowerCount = await strategyContract.getCommunityBorrowerCount();
+      setTotalBorrowers(borrowerCount.toString());
+
+      const communityDebtRepaid = await strategyContract.totalCommunityDebtRepaid();
+      setTotalRepaidAmount(ethers.formatUnits(communityDebtRepaid, 18));
     } catch (err) {
       console.error('Error loading borrower data:', err);
       setError('Failed to load borrower information');
@@ -110,13 +121,13 @@ const CommunityBorrowerDashboard = ({ account, provider, signer, strategyAddress
               <div className="bg-gray-900/60 rounded-xl p-4 border border-purple-500/30">
                 <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider">Total Borrowers</p>
                 <p className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  {account ? '0' : '-'}
+                  {account ? totalBorrowers : '-'}
                 </p>
               </div>
               <div className="bg-gray-900/60 rounded-xl p-4 border border-purple-500/30">
                 <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider">Total Repaid</p>
                 <p className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  0.0000 DAI
+                  {formatNumber(totalRepaidAmount)} DAI
                 </p>
               </div>
             </div>

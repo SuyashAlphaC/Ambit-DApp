@@ -512,16 +512,10 @@ This project was built for the Octant DeFi Hackathon. Contributions are welcome!
 
 ## Links & Resources
 
-- **Smart Contracts:** `../Ambit/` directory
+- **Smart Contracts:** [Ambit-Double-Duty-Loans-Protocol](https://github.com/SuyashAlphaC/Ambit-Double-Duty-Loans-Protocol)
 - **Octant Protocol:** [octant.build](https://octant.build)
 - **Morpho Blue:** [morpho.org](https://morpho.org)
 - **Spark Protocol:** [spark.fi](https://spark.fi)
-
----
-
-## License
-
-MIT License - Built for the Octant DeFi Hackathon
 
 ---
 
@@ -535,3 +529,8 @@ MIT License - Built for the Octant DeFi Hackathon
 ---
 
 Built with ❤️ for the Octant DeFi Hackathon
+
+
+
+
+
